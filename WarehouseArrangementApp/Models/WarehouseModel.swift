@@ -9,12 +9,36 @@ import Foundation
 import SwiftUI
 
 // 🧠 کلاس مسئول مدیریت انبار و نحوه چینش مجسمه‌ها
+// 🏗️ مدل انبار: نگهدارنده داده‌ها و منطق چینش
 class WarehouseModel: ObservableObject {
     // 🧩 ویژگی‌ها (Properties)
     
     // 🔸 آرایه‌ای از مجسمه‌ها
     @Published var sculptures: [Sculpture] = []
-    
+    // 💡 محاسبه فاصله بین دو مجسمه
+       func distance(from a: Sculpture, to b: Sculpture) -> CGFloat {
+           let dx = a.position.x - b.position.x
+           let dy = a.position.y - b.position.y
+           return sqrt(dx*dx + dy*dy)
+       }
+    // 🔒 بروزرسانی امنیت مجسمه‌ها بر اساس نزدیکی به مجسمه‌های مرکزی
+        func updateSafetyLevels() {
+            guard let home = sculptures.first(where: {$0.name == "خونه"}),
+                  let eagle = sculptures.first(where: {$0.name == "عقاب"}) else { return }
+            
+            for i in 0..<sculptures.count {
+                let sculpture = sculptures[i]
+                
+                // فاصله از مرکزها
+                let dHome = distance(from: sculpture, to: home)
+                let dEagle = distance(from: sculpture, to: eagle)
+                
+                // امنیت: هرچی نزدیک‌تر به مجسمه ضدسرقت‌تر باشه، امن‌تر
+                let antiTheftScore = max(0, 10 - min(dHome, dEagle))
+                
+                sculptures[i].antiTheft = Int(antiTheftScore)
+            }
+        }
     // 🔸 ابعاد انبار (۴۴ در ۴۴ متر)
     let size: Double = 44.0
     
