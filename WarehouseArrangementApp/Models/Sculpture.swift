@@ -32,15 +32,22 @@ struct Sculpture: Identifiable {
     // 🛡️ تعداد محافظ‌های اطراف
         var protectorsAssigned: Int = 0
         
-        // 💡 رفتار: تابع محاسبه امتیاز ایمنی مجسمه
-        func safetyScore(center: CGPoint) -> Double {
-            // فاصله از مرکز انبار
-            let dx = position.x - center.x
-            let dy = position.y - center.y
-            let distance = sqrt(dx * dx + dy * dy)
-            
-            // محاسبه امتیاز ایمنی ترکیبی بر اساس ضدسرقت بودن، فاصله از مرکز و آسیب‌پذیری
-            return (Double(antiTheft) * 1.5) - (Double(vulnerability) * 0.8) - (distance * 0.2)
-        }
+    // 🔹 تابع محاسبه امتیاز امنیتی
+//    // 💡 رفتار: تابع محاسبه امتیاز ایمنی مجسمه
+//        func safetyScore(center: CGPoint) -> Double {
+//            // فاصله از مرکز انبار
+//            let dx = position.x - center.x
+//            let dy = position.y - center.y
+//            let distance = sqrt(dx * dx + dy * dy)
+//
+//            // محاسبه امتیاز ایمنی ترکیبی بر اساس ضدسرقت بودن، فاصله از مرکز و آسیب‌پذیری
+//            return (Double(antiTheft) * 1.5) - (Double(vulnerability) * 0.8) - (distance * 0.2)
+//        }
+    // 🔹 تابع محاسبه امتیاز امنیتی
+    func safetyScore(center: CGPoint) -> Double {
+        let dist = sqrt(pow(position.x - center.x,2) + pow(position.y - center.y,2))
+        return Double(antiTheft) / (1 + dist)
+    }
+    
 }
 

@@ -47,12 +47,14 @@ struct WarehouseView: View {
                         .fill(Color.cyan.opacity(0.5))
                         .frame(width: sculpture.width * gridSize, height: sculpture.height * gridSize)
                         .overlay(
-//                            Text("🔒\(sculpture.antiTheft)")
-//                                .foregroundColor(.white)
+                            //                            Text("🔒\(sculpture.antiTheft)")
+                            //                                .foregroundColor(.white)
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(.white.opacity(0.8),lineWidth: 1)
                         )
                         .shadow(radius: 5)
+                    
+                    
                 }
                 // 📍 محل قرارگیری مجسمه در فضای انبار
                 // موقعیت‌دهی در فضای فرضی ۴۴×۴۴
@@ -61,8 +63,22 @@ struct WarehouseView: View {
                     y: sculpture.position.y * gridSize
                 )
                 // 🎯 انیمیشن نرم برای ورود مجسمه‌ها
-//                                .animation(.spring(response: 0.6, dampingFraction: 0.8), value: sculptures)
-                            
+                //                                .animation(.spring(response: 0.6, dampingFraction: 0.8), value: sculptures)
+                
+                // 🛡️ رسم محافظ‌ها اطراف مجسمه
+                ForEach(0..<sculpture.protectorsAssigned, id: \.self) { p in
+                    let angle = Double(p) / Double(sculpture.protectorsAssigned) * 2 * .pi
+                    let radius: CGFloat = max(sculpture.width, sculpture.height) / 2 + 1.0 // فاصله از مجسمه
+                    
+                    let px = sculpture.position.x * gridSize + radius * cos(angle) * gridSize
+                    let py = sculpture.position.y * gridSize + radius * sin(angle) * gridSize
+                    
+                    Rectangle()
+                        .fill(Color.blue.opacity(0.5))
+                        .frame(width: gridSize, height: gridSize)
+                        .position(x: px, y: py)
+                }
+
             }
             .navigationTitle("نمایش انبار 🏗️")
         }
