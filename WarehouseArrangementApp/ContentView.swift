@@ -11,7 +11,7 @@ import Foundation
 // در شیءگرایی این View مانند یک شیء است که شامل رفتار (تابع) و داده (State) است.
 
 struct ContentView: View {
-    @State private var sculptures: [Sculpture] = [] // نگهداری آرایه‌ای از مجسمه‌ها
+        @State private var sculptures: [Sculpture] = [] // نگهداری آرایه‌ای از مجسمه‌ها
         @State private var showWarehouse = false // وضعیت نمایش انبار
         @State private var homeWidth: String = "" // ورودی طول خانه
         @State private var homeHeight: String = "" // ورودی عرض خانه
