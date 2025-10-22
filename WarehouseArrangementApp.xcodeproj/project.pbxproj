@@ -22,6 +22,9 @@
 		F9BFD3DE2EA8E9B100C3B39A /* WarehouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFD3DD2EA8E9B100C3B39A /* WarehouseView.swift */; };
 		F9BFD3DF2EA8E9B100C3B39A /* WarehouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFD3DD2EA8E9B100C3B39A /* WarehouseView.swift */; };
 		F9BFD3E02EA8E9B100C3B39A /* WarehouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFD3DD2EA8E9B100C3B39A /* WarehouseView.swift */; };
+		F9BFD3E22EA8F76600C3B39A /* WarehouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFD3E12EA8F76600C3B39A /* WarehouseModel.swift */; };
+		F9BFD3E32EA8F76600C3B39A /* WarehouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFD3E12EA8F76600C3B39A /* WarehouseModel.swift */; };
+		F9BFD3E42EA8F76600C3B39A /* WarehouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFD3E12EA8F76600C3B39A /* WarehouseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 		F9BFD3B82EA8CC9600C3B39A /* WarehouseArrangementAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseArrangementAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F9BFD3D82EA8E8D000C3B39A /* Sculpture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sculpture.swift; sourceTree = "<group>"; };
 		F9BFD3DD2EA8E9B100C3B39A /* WarehouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseView.swift; sourceTree = "<group>"; };
+		F9BFD3E12EA8F76600C3B39A /* WarehouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				F9BFD3D82EA8E8D000C3B39A /* Sculpture.swift */,
+				F9BFD3E12EA8F76600C3B39A /* WarehouseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9BFD3E22EA8F76600C3B39A /* WarehouseModel.swift in Sources */,
 				F9BFD3DE2EA8E9B100C3B39A /* WarehouseView.swift in Sources */,
 				F9BFD39E2EA8CC8E00C3B39A /* ContentView.swift in Sources */,
 				F9BFD39C2EA8CC8E00C3B39A /* WarehouseArrangementApp.swift in Sources */,
@@ -296,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9BFD3E32EA8F76600C3B39A /* WarehouseModel.swift in Sources */,
 				F9BFD3DF2EA8E9B100C3B39A /* WarehouseView.swift in Sources */,
 				F9BFD3CD2EA8D40500C3B39A /* ContentView.swift in Sources */,
 				F9BFD3AD2EA8CC9600C3B39A /* WarehouseArrangementAppTests.swift in Sources */,
@@ -312,6 +319,7 @@
 				F9BFD3DB2EA8E8D000C3B39A /* Sculpture.swift in Sources */,
 				F9BFD3B92EA8CC9600C3B39A /* WarehouseArrangementAppUITestsLaunchTests.swift in Sources */,
 				F9BFD3CE2EA8D40500C3B39A /* ContentView.swift in Sources */,
+				F9BFD3E42EA8F76600C3B39A /* WarehouseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
