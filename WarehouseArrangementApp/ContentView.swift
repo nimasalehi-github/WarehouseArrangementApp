@@ -10,14 +10,23 @@ import Foundation
 // 🧱 ویوی اصلی اپلیکیشن که کاربر در ابتدا آن را می‌بیند
 // در شیءگرایی این View مانند یک شیء است که شامل رفتار (تابع) و داده (State) است.
 
+// 🪟 ویوی اصلی اپلیکیشن
 struct ContentView: View {
-        @State private var sculptures: [Sculpture] = [] // نگهداری آرایه‌ای از مجسمه‌ها
-        @State private var showWarehouse = false // وضعیت نمایش انبار
-        @State private var homeWidth: String = "" // ورودی طول خانه
-        @State private var homeHeight: String = "" // ورودی عرض خانه
-        @State private var eagleWidth: String = "" // ورودی طول عقاب
-        @State private var eagleHeight: String = "" // ورودی عرض عقاب
     
+    // 🧠 شیء مدل انبار که منطق چینش داخلشه
+        @StateObject private var warehouse = WarehouseModel()
+    
+    // 💬 متغیرهای موقتی برای ورودی مجسمه‌ها
+    @State private var homeWidth: String = "" // ورودی طول خانه
+    @State private var homeHeight: String = "" // ورودی عرض خانه
+    @State private var eagleWidth: String = "" // ورودی طول عقاب
+    @State private var eagleHeight: String = "" // ورودی عرض عقاب
+
+    // 🔀 کنترل نمایش انبار
+    @State private var showWarehouse = false // وضعیت نمایش انبار
+        
+//    @State private var sculptures: [Sculpture] = [] // نگهداری آرایه‌ای از مجسمه‌ها
+
     var body: some View {
             ZStack {
                 // 🪟 پس‌زمینه با افکت شیشه‌ای (Glass Effect)
@@ -28,7 +37,7 @@ struct ContentView: View {
                 VStack {
                     if showWarehouse {
                         // اگر کاربر دکمه شروع را زده باشد، ویوی انبار نمایش داده می‌شود
-                        WarehouseView(sculptures: sculptures)
+                        WarehouseView(sculptures: warehouse.sculptures)
                     } else {
                         // فرم ورود داده‌ها
                         VStack(spacing: 15) {
@@ -88,7 +97,7 @@ struct ContentView: View {
                 position: CGPoint(x: 22, y: 26)
             )
             
-            sculptures = [home, eagle]
+            warehouse.sculptures = [home, eagle]
         }
 }
 
