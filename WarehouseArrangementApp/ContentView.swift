@@ -85,7 +85,7 @@ struct ContentView: View {
                 vulnerability: 3,
                 antiTheft: 9,
                 price: 9000,
-                position: CGPoint(x: 22, y: 23)
+                position: CGPoint(x: 22, y: 26)
             )
             
             sculptures = [home, eagle]
